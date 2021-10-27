@@ -1,0 +1,27 @@
+/* кнопка X */
+.popup__exit {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  z-index: 7;
+  background-image: url(../../../image/Close\ Icon.svg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+}
+
+.popup__exit:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 935px) {
+  .popup__exit {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    right: 0;
+  }
+}

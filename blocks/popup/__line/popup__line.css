@@ -1,0 +1,25 @@
+/* строка ввода */
+.popup__line {
+  width: 358px;
+  margin-top: 39px;
+  border: none;
+}
+
+.popup__line:last-of-type {
+  margin-top: 43px;
+}
+
+.popup__line:hover {
+  border-bottom: 1px solid #000000;
+  opacity: 0.2;
+}
+
+@media screen and (max-width: 935px) {
+  .popup__line {
+    margin: 68px 22px 0px 22px;
+    width: calc(282px - 44px);
+  }
+  .popup__line:last-of-type {
+    margin-top: 45px;
+  }
+}

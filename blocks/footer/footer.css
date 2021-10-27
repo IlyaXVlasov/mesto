@@ -1,0 +1,14 @@
+/* подвал */
+.footer {
+  max-width: calc(1280px - 400px);
+  height: 18px;
+  margin: 67px auto 60px;
+}
+
+@media screen and (max-width: 935px) {
+  .footer {
+    max-width: calc(100% - 38px);
+    margin: 48px auto 36px;
+    height: 14px;
+  }
+}

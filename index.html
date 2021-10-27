@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <!--Головная часть тех информации-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Mesto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Mesto на Яндекс Практикуме" />
+    <meta name="keywords" content="html, css" />
+    <meta name="author" content="Власов Илья" />
+  </head>
+  <!-- тот же body-->
+  <body class="page">
+    <!--верхний колонтикул -->
+    <header class="header">
+      <div class="header__logo"></div>
+    </header>
+    <!-- Главный контент всего сайта -->
+    <main class="main">
+      <!-- учетная запись -->
+      <section class="profile page__profile">
+        <img
+          class="profile__avatar"
+          src="./image/Исследователь.jpg"
+          alt="исследователь"
+        />
+        <article class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__edit"></button>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </article>
+        <button class="profile__plus"></button>
+      </section>
+      <!-- секция карточек -->
+      <section class="cards page__photo">
+        <ul class="card">
+          <li class="card__item">
+            <img
+              class="card__photo-card"
+              src="./image/метеоры.jpg"
+              alt="Монастыри Метеоры, Греция"
+            />
+            <div class="card__like">
+              <h3 class="card__title">Метеоры</h3>
+              <button class="card__heart"></button>
+            </div>
+          </li>
+          <li class="card__item">
+            <img
+              class="card__photo-card"
+              src="./image/ганьсу.jpg"
+              alt="Китайская провинция Ганьсу"
+            />
+            <div class="card__like">
+              <h3 class="card__title">Ганьсу</h3>
+              <button class="card__heart"></button>
+            </div>
+          </li>
+          <li class="card__item">
+            <img
+              class="card__photo-card"
+              src="./image/Гора Эльбрус.png"
+              alt="Гора Эльбрус"
+            />
+            <div class="card__like">
+              <h3 class="card__title">Гора Эльбрус</h3>
+              <button class="card__heart"></button>
+            </div>
+          </li>
+          <li class="card__item">
+            <img
+              class="card__photo-card"
+              src="./image/Чжанцзяцзе.jpg"
+              alt="Национальный парк Чжанцзяцзе, Китай"
+            />
+            <div class="card__like">
+              <h3 class="card__title">Чжанцзяцзе</h3>
+              <button class="card__heart"></button>
+            </div>
+          </li>
+          <li class="card__item">
+            <img
+              class="card__photo-card"
+              src="./image/морейн.jpg"
+              alt="Ледниковое озеро Морейн в Альберте, Канада"
+            />
+            <div class="card__like">
+              <h3 class="card__title">Морейн</h3>
+              <button class="card__heart"></button>
+            </div>
+          </li>
+          <li class="card__item">
+            <img
+              class="card__photo-card"
+              src="./image/фьядрарглйуфур.jpg"
+              alt="Каньон Фьядрарглйуфур, Исландия"
+            />
+            <div class="card__like">
+              <h3 class="card__title">Фьядрарглйуфур</h3>
+              <button class="card__heart"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <!-- нижний колонтикул -->
+    <footer class="footer">
+      <p class="footer__copyright">© 2020 Mesto world</p>
+    </footer>
+    <!--модальное окно-->
+    <section class="popup popup_opened">
+      <div class="popup__container">
+        <button class="popup__exit"></button>
+        <form action="index.html" method="post">
+          <fieldset class="popup__contact">
+            <h2 class="popup__heading">Редактировать профиль</h2>
+            <label for="name"></label>
+            <input
+              type="text"
+              class="popup__line"
+              id="name"
+              name="researcher"
+              placeholder="Жак-Ив Кусто"
+              required
+            />
+            <label for="eco"></label>
+            <input
+              type="text"
+              class="popup__line"
+              id="eco"
+              name="eco"
+              placeholder="Исследователь океана"
+              required
+            />
+            <button type="button" class="popup__save-button">Сохранить</button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

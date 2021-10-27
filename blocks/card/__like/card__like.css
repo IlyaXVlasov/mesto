@@ -1,0 +1,5 @@
+/* блок сердце заголовок */
+.card__like {
+  display: flex;
+  justify-content: space-between;
+}

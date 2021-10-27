@@ -1,0 +1,24 @@
+/* кнопка карандаш*/
+.profile__edit {
+  grid-area: edit;
+  align-self: center;
+  background-image: url(../../../image/галка.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  border: 1px solid #ffffff;
+}
+
+.profile__edit:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 935px) {
+  .profile__edit {
+    width: 18px;
+    height: 18px;
+  }
+}

@@ -1,0 +1,17 @@
+/* логотип */
+.header__logo {
+  background-image: url(../../../image/logo.svg);
+  background-repeat: no-repeat;
+  object-fit: cover;
+  width: 142px;
+  height: 33px;
+}
+
+@media screen and (max-width: 935px) {
+  .header__logo {
+    margin-left: 27px;
+    width: 103px;
+    height: 24px;
+    background-size: contain;
+  }
+}

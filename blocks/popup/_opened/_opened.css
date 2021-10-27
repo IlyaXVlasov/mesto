@@ -1,0 +1,4 @@
+/* переключатель */
+.popup_opened {
+  display: flex;
+}

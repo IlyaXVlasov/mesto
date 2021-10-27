@@ -1,0 +1,20 @@
+/* контейнер */
+.profile__info {
+  display: grid;
+  grid-template-columns: 1fr 248px;
+  grid-template-rows: 1fr;
+  column-gap: 18px;
+  grid-template-areas:
+    "title edit"
+    "subtitle .";
+  margin: 22px 0px 25px 0px;
+}
+
+@media screen and (max-width: 935px) {
+  .profile__info {
+    grid-template-columns: 1fr;
+    column-gap: 10px;
+    row-gap: 14px;
+    margin-bottom: 36px;
+  }
+}
