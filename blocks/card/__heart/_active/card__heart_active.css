@@ -1,0 +1,4 @@
+/* черное сердце */
+.card__heart_active {
+  background-image: url(../../../../image/black-heart.svg);
+}

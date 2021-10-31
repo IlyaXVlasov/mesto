@@ -1,7 +1,12 @@
 /* строка ввода */
 .popup__line {
   width: 358px;
-  margin-top: 39px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  margin-top: 46px;
+  color: #000000;
   border: none;
 }
 
@@ -10,8 +15,7 @@
 }
 
 .popup__line:hover {
-  border-bottom: 1px solid #000000;
-  opacity: 0.2;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 935px) {

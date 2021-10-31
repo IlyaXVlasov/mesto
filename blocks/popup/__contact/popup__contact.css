@@ -1,7 +1,7 @@
 /* поле ввода */
 .popup__contact {
   width: 358px;
-  height: 330px;
+  min-height: 330px;
   border: none;
   margin: 0 auto;
   padding: 0;

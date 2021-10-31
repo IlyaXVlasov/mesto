@@ -29,10 +29,10 @@
         />
         <article class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <button class="profile__edit"></button>
+          <button type="button" class="profile__edit"></button>
           <p class="profile__subtitle">Исследователь океана</p>
         </article>
-        <button class="profile__plus"></button>
+        <button type="button" class="profile__plus"></button>
       </section>
       <!-- секция карточек -->
       <section class="cards page__photo">
@@ -45,7 +45,7 @@
             />
             <div class="card__like">
               <h3 class="card__title">Метеоры</h3>
-              <button class="card__heart"></button>
+              <button type="button" class="card__heart"></button>
             </div>
           </li>
           <li class="card__item">
@@ -56,7 +56,7 @@
             />
             <div class="card__like">
               <h3 class="card__title">Ганьсу</h3>
-              <button class="card__heart"></button>
+              <button type="button" class="card__heart"></button>
             </div>
           </li>
           <li class="card__item">
@@ -67,7 +67,7 @@
             />
             <div class="card__like">
               <h3 class="card__title">Гора Эльбрус</h3>
-              <button class="card__heart"></button>
+              <button type="button" class="card__heart"></button>
             </div>
           </li>
           <li class="card__item">
@@ -78,7 +78,7 @@
             />
             <div class="card__like">
               <h3 class="card__title">Чжанцзяцзе</h3>
-              <button class="card__heart"></button>
+              <button type="button" class="card__heart"></button>
             </div>
           </li>
           <li class="card__item">
@@ -89,7 +89,11 @@
             />
             <div class="card__like">
               <h3 class="card__title">Морейн</h3>
-              <button class="card__heart"></button>
+              <!-- кнопка сердце с модификатором -->
+              <button
+                type="button"
+                class="card__heart card__heart_active"
+              ></button>
             </div>
           </li>
           <li class="card__item">
@@ -100,7 +104,7 @@
             />
             <div class="card__like">
               <h3 class="card__title">Фьядрарглйуфур</h3>
-              <button class="card__heart"></button>
+              <button type="button" class="card__heart"></button>
             </div>
           </li>
         </ul>
@@ -114,10 +118,9 @@
     <section class="popup popup_opened">
       <div class="popup__container">
         <button class="popup__exit"></button>
-        <form action="index.html" method="post">
+        <form action="index.html" method="post" name="profile">
           <fieldset class="popup__contact">
             <h2 class="popup__heading">Редактировать профиль</h2>
-            <label for="name"></label>
             <input
               type="text"
               class="popup__line"
@@ -126,7 +129,6 @@
               placeholder="Жак-Ив Кусто"
               required
             />
-            <label for="eco"></label>
             <input
               type="text"
               class="popup__line"
@@ -135,7 +137,7 @@
               placeholder="Исследователь океана"
               required
             />
-            <button type="button" class="popup__save-button">Сохранить</button>
+            <button type="submit" class="popup__save-button">Сохранить</button>
           </fieldset>
         </form>
       </div>

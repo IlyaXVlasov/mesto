@@ -1,10 +1,11 @@
 /* кнопка save */
 .popup__save-button {
-  height: 50px;
+  min-height: 50px;
   width: calc(430px - 72px);
   margin: 61px auto 37px;
   background: #000000;
   border-radius: 2px;
+  border: none;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -20,7 +21,7 @@
 @media screen and (max-width: 935px) {
   .popup__save-button {
     width: 238px;
-    height: 46px;
+    min-height: 46px;
     font-size: 14px;
     line-height: 17px;
     margin: 45px 22px 25px 22px;
