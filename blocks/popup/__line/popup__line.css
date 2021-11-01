@@ -8,14 +8,11 @@
   margin-top: 46px;
   color: #000000;
   border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .popup__line:last-of-type {
   margin-top: 43px;
-}
-
-.popup__line:hover {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 935px) {
