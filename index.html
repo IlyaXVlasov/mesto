@@ -37,7 +37,23 @@
       <!-- секция карточек -->
       <section class="cards page__photo">
         <ul class="card">
+          <template id="tempcard">
+            <li class="card__item">
+              <button type="button" class="card__delete"></button>
+              <img
+                class="card__photo-card"
+                src="./image/gansu.jpg"
+                alt="Китайская провинция Ганьсу"
+              />
+              <div class="card__like">
+                <h3 class="card__title">Ганьсу</h3>
+                <button type="button" class="card__heart"></button>
+              </div>
+            </li>
+          </template>
+          <!--
           <li class="card__item">
+            <button type="button" class="card__delete"></button>
             <img
               class="card__photo-card"
               src="./image/meteors.jpg"
@@ -48,18 +64,9 @@
               <button type="button" class="card__heart"></button>
             </div>
           </li>
+
           <li class="card__item">
-            <img
-              class="card__photo-card"
-              src="./image/gansu.jpg"
-              alt="Китайская провинция Ганьсу"
-            />
-            <div class="card__like">
-              <h3 class="card__title">Ганьсу</h3>
-              <button type="button" class="card__heart"></button>
-            </div>
-          </li>
-          <li class="card__item">
+            <button type="button" class="card__delete"></button>
             <img
               class="card__photo-card"
               src="./image/mount elbrus.png"
@@ -71,6 +78,7 @@
             </div>
           </li>
           <li class="card__item">
+            <button type="button" class="card__delete"></button>
             <img
               class="card__photo-card"
               src="./image/Zhangjiajie.jpg"
@@ -82,6 +90,7 @@
             </div>
           </li>
           <li class="card__item">
+            <button type="button" class="card__delete"></button>
             <img
               class="card__photo-card"
               src="./image/moiraine.jpg"
@@ -89,7 +98,7 @@
             />
             <div class="card__like">
               <h3 class="card__title">Морейн</h3>
-              <!-- кнопка сердце с модификатором -->
+               кнопка сердце с модификатором 
               <button
                 type="button"
                 class="card__heart card__heart_active"
@@ -97,6 +106,7 @@
             </div>
           </li>
           <li class="card__item">
+            <button type="button" class="card__delete"></button>
             <img
               class="card__photo-card"
               src="./image/fjadrarglyufur.jpg"
@@ -106,7 +116,7 @@
               <h3 class="card__title">Фьядрарглйуфур</h3>
               <button type="button" class="card__heart"></button>
             </div>
-          </li>
+          </li> -->
         </ul>
       </section>
     </main>
@@ -114,17 +124,17 @@
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto world</p>
     </footer>
-    <!--модальное окно-->
-    <section class="popup popup_opened">
+    <!--модальное окно(профиль)-->
+    <section class="popup popup_type_profile">
       <div class="popup__container">
         <button type="button" class="popup__exit"></button>
-        <form action="index.html" method="post" name="profile">
+        <form action="index.html" method="post" name="profile" id="formprofile">
           <fieldset class="popup__contact">
             <h2 class="popup__heading">Редактировать профиль</h2>
             <input
               type="text"
               class="popup__line"
-              id="name"
+              id="researcher"
               name="researcher"
               placeholder="Жак-Ив Кусто"
               required
@@ -142,5 +152,38 @@
         </form>
       </div>
     </section>
+
+    <!-- модальное окно (добавление карточек)-->
+    <section class="popup-card popup_type_card">
+      <div class="popup-card__container">
+        <button type="button" class="popup-card__exit"></button>
+        <form action="index.html" method="post" name="profile" id="formcard">
+          <fieldset class="popup-card__contact">
+            <h2 class="popup-card__heading">Новое место</h2>
+            <input
+              type="text"
+              class="popup-card__line"
+              id="namecard"
+              name="namecard"
+              placeholder="Название"
+              required
+            />
+            <input
+              type="text"
+              class="popup-card__line"
+              id="linkcard"
+              name="linkcard"
+              placeholder="Ссылка на картинку"
+              required
+            />
+            <button type="submit" class="popup-card__save-button">
+              Создать
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+    <!-- JavaScript подключение -->
+    <script src="./pages/index.js"></script>
   </body>
 </html>

@@ -1,5 +1,7 @@
 /* изображение */
 .card__photo-card {
+  width: 282px;
+  height: 282px;
   display: block;
   width: 100%;
   box-sizing: border-box;

@@ -5,8 +5,7 @@
   margin: 30px;
   border: 0;
   padding: 0;
-  background-color: transparent;
-  background-position: right;
+  background-color: #ffffff;
   background-repeat: no-repeat;
   background-image: url(../../../image/heart.svg);
 }

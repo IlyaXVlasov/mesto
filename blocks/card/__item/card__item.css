@@ -1,5 +1,7 @@
 /* карточка */
 .card__item {
+  position: relative;
+  z-index: 1;
   max-width: 100%;
   width: 282px;
   min-height: 361px;
