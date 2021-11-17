@@ -13,6 +13,11 @@ const formCard = document.getElementById("formcard"); // форма карточ
 const CardName = document.querySelector(".card__title"); // имя карточки //
 const photoCard = document.querySelector(".card__photo-card"); // фото карточки //
 const listCard = document.querySelector(".card"); // список //
+// переменные к фото //
+const exitButtonPhoto = document.querySelector(".popup-photo__exit"); // кнопка закрыть //
+const popupPhoto = document.querySelector(".popup-photo"); // модальное окно с фото //
+const nameImages = document.querySelector(".popup-photo__name-photo"); // название фото //
+const ImageLink = document.querySelector(".popup-photo__images"); // фото //
 
 //cобытие клик по кнопке и анонимная функция//
 editButton.addEventListener("click", function () {
@@ -38,15 +43,19 @@ function formSubmitHandler(evt) {
 }
 // нажал на форму + вызвал отправку + вызвал функцию //
 formProfile.addEventListener("submit", formSubmitHandler);
-
+// открыть попап добавить карточку //
 plusButton.addEventListener("click", function () {
   popupCard.classList.add("popup_type_card");
   console.log("Нажал(а) на кнопку добавить карточку");
 });
-
+// закрытие попапа с карточками //
 exitButtonCard.addEventListener("click", function () {
   popupCard.classList.remove("popup_type_card");
   console.log("Нажал(а) на кнопку закрыть");
+});
+
+exitButtonPhoto.addEventListener("click", function () {
+  popupPhoto.classList.remove("popup_type_photo");
 });
 
 function CardSubmitHandler(evt) {
@@ -62,7 +71,7 @@ function CardSubmitHandler(evt) {
 formCard.addEventListener("submit", CardSubmitHandler);
 
 function CreateCard(name, link) {
-  // Создаем клон карточки //
+  // клонируем содержимое тега template //
   const CardTemplate = document.querySelector("#tempcard").content;
   const ElementItem = CardTemplate.querySelector(".card__item").cloneNode(true);
   // Функция удаления карточек //
@@ -73,11 +82,24 @@ function CreateCard(name, link) {
       ElementItem.remove();
     }
   );
+  // откроет попап с фото //
+  ElementItem.querySelector(".card__photo-card").addEventListener(
+    "click",
+    function (evt) {
+      const ImageLink = evt.target.setAttribute("src", link);
+      const nameImages = evt.target.setAttribute("alt", name);
+      console.log(evt.target);
+      popupPhoto.classList.add("popup_type_photo");
+      document.querySelector(".popup-photo__name-photo").textContent = name;
+      document.querySelector(".popup-photo__images").setAttribute("src", link);
+      document.querySelector(".popup-photo__images").setAttribute("alt", name);
+    }
+  );
 
   ElementItem.querySelector(".card__photo-card").setAttribute("src", link);
   ElementItem.querySelector(".card__photo-card").setAttribute("alt", name);
   ElementItem.querySelector(".card__title").textContent = name;
-
+  // функция переключатель сердец //
   ElementItem.querySelector(".card__heart").addEventListener(
     "click",
     function (evt) {
@@ -85,7 +107,7 @@ function CreateCard(name, link) {
       console.log(evt.target);
     }
   );
-
+  // отображаем в начале //
   listCard.prepend(ElementItem);
 }
 
@@ -116,3 +138,6 @@ const initialCards = [
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
+
+// функция перебора карточек //
+initialCards.forEach((element) => CreateCard(element.name, element.link));

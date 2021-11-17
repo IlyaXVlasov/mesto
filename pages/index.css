@@ -38,4 +38,10 @@
 @import url(../blocks/popup-card/__exit/popup-card__exit.css);
 @import url(../blocks/popup-card/__heading/popup-card__heading.css);
 @import url(../blocks/popup-card/__line/popup-card__line.css);
-@import url(../blocks/popup-card/__save-button/popup-card__save-button.css); ;
+@import url(../blocks/popup-card/__save-button/popup-card__save-button.css);
+@import url(../blocks/popup-photo/popup-photo.css);
+@import url(../blocks/popup-photo/_type/popup_type_photo.css);
+@import url(../blocks/popup-photo/__exit/popup-photo__exit.css);
+@import url(../blocks/popup-photo/__container/popup-photo__container.css);
+@import url(../blocks/popup-photo/__name-photo/popup-photo__name-photo.css);
+@import url(../blocks/popup-photo/__images/popup-photo__images.css);
