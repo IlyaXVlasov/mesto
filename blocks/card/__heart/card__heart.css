@@ -12,6 +12,7 @@
 
 .card__heart:hover {
   opacity: 0.5;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 935px) {

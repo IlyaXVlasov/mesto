@@ -3,13 +3,13 @@ const editButton = document.querySelector(".profile__edit"); //кнопка ка
 const popupProfile = document.querySelector(".popup_type_profile"); //модальное окно//
 const exitButton = document.querySelector(".popup__exit"); //кнопка крестик//
 const profileName = document.querySelector(".profile__title"); // имя  профиля //
-const formProfile = document.getElementById("formprofile"); // форма профиля //
+const formProfile = document.querySelector("#formprofile"); // форма профиля //
 const profileDesc = document.querySelector(".profile__subtitle"); // деятельность профиля //
 // переменные к карточкам //
 const plusButton = document.querySelector(".profile__plus"); // кнопка плюс //
 const popupCard = document.querySelector(".popup_type_card"); // модальное окно с карточками //
 const exitButtonCard = document.querySelector(".popup-card__exit"); // кнопка закрыть попап //
-const formCard = document.getElementById("formcard"); // форма карточек //
+const formCard = document.querySelector("#formcard"); // форма карточек //
 const cardName = document.querySelector(".card__title"); // имя карточки //
 const photoCard = document.querySelector(".card__photo-card"); // фото карточки //
 const listCard = document.querySelector(".card"); // список //
@@ -21,12 +21,14 @@ const nameImages = document.querySelector(".popup-photo__name-photo"); // наз
 const imageLink = document.querySelector(".popup-photo__images"); // фото //
 
 // добавляем модификаторы
-const openPopup = (pop) => {
-  pop.classList.add("popup_opened");
+const openPopup = (popup) => {
+  popup.classList.add("popup_opened");
 };
 
 editButton.addEventListener("click", () => {
   //cобытие клик по кнопке //
+  document.querySelector("#eco").value; // сохраняем данные пользователя
+  document.querySelector("#researcher").value;
   openPopup(popupProfile); //вызываем родителя присваиваем класс//
 });
 
@@ -36,8 +38,8 @@ plusButton.addEventListener("click", () => {
 });
 
 // удаляем модификаторы
-const closePopup = (pop) => {
-  pop.classList.remove("popup_opened");
+const closePopup = (popup) => {
+  popup.classList.remove("popup_opened");
 };
 exitButton.addEventListener("click", () => {
   //  закрыть профиль
@@ -56,8 +58,8 @@ exitButtonPhoto.addEventListener("click", () => {
 
 const formSubmitHandler = (evt) => {
   evt.preventDefault(); //блокирует отправку //
-  const jobInput = document.getElementById("eco"); // строка ввода деятельности //
-  const nameInput = document.getElementById("researcher"); // строка ввода имени //
+  const jobInput = document.querySelector("#eco"); // строка ввода деятельности //
+  const nameInput = document.querySelector("#researcher"); // строка ввода имени //
 
   profileName.textContent = nameInput.value; //  запись с 1 ого инпута //
   profileDesc.textContent = jobInput.value; // запись с 2 ого инпута //
@@ -69,10 +71,11 @@ formProfile.addEventListener("submit", formSubmitHandler);
 const cardSubmitHandler = (evt) => {
   evt.preventDefault(); //блокирует отправку //
 
-  const inputCardLink = document.getElementById("linkcard").value;
-  const inputCardName = document.getElementById("namecard").value;
+  const inputCardLink = document.querySelector("#linkcard").value;
+  const inputCardName = document.querySelector("#namecard").value;
 
   addCard(listCard, createCard(inputCardName, inputCardLink));
+  formCard.reset();
   closePopup(popupCard);
 };
 // нажал на форму + вызвал отправку + вызвал функцию //

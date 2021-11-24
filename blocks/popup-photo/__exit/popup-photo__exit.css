@@ -16,6 +16,7 @@
 
 .popup-photo__exit:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 935px) {

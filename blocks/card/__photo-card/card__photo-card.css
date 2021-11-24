@@ -7,3 +7,7 @@
   box-sizing: border-box;
   object-fit: cover;
 }
+
+.card__photo-card:hover {
+  cursor: pointer;
+}
