@@ -21,7 +21,7 @@ const hideInputError = (formElement, inputElement) => {
 };
 
 // проверяем валидность поля
-const checkIsValid = (formElement, inputElement) => {
+export const checkIsValid = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
@@ -29,19 +29,22 @@ const checkIsValid = (formElement, inputElement) => {
   }
 };
 
-// проверяем валидность инпутов
-const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-};
 // функция переключения валидации формы кнопки
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(validationSetting.inactiveButtonClass);
+    buttonElement.setAttribute("disabled", true);
   } else {
     buttonElement.classList.remove(validationSetting.inactiveButtonClass);
+    buttonElement.removeAttribute("disabled");
   }
+};
+
+// проверяем валидность инпутов
+export const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
 };
 
 // добавляем обработчиков всем импутам формы

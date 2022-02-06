@@ -1,22 +1,45 @@
 import { popupImages } from "./modal.js";
-import { listCard } from "./constants.js";
+import { userId } from "../index.js";
+import { settingLike, removingLike, deleteCard } from "./api.js";
 
-const createCard = (name, link) => {
+const createCard = (name, link, likes, cardId, ownerId) => {
   // клонируем содержимое тега template
   const cardTemplate = document.querySelector("#tempcard").content;
   const elementItem = cardTemplate.querySelector(".card__item").cloneNode(true);
+  const deleteElement = elementItem.querySelector(".card__delete");
+  const likeElement = elementItem.querySelector(".card__heart"); //сердце
+  const likeQuantity = elementItem.querySelector(".card__quantity"); //число
+
+  likeQuantity.textContent = likes.length; // длинна массива
+
+  const isLiked = Boolean(
+    likes.find((user) => {
+      return user._id === userId;
+    })
+  ); // выполняем поиск id нашего лайка
+  if (isLiked) {
+    likeElement.classList.add("card__heart_active");
+  }
+
+  const isOwner = ownerId === userId;
+  if (isOwner) {
+    deleteElement.classList.add("card__delete_visible");
+  } else {
+    deleteElement.classList.add("card__delete_hidden");
+  }
 
   elementItem.querySelector(".card__photo-card").setAttribute("src", link);
   elementItem.querySelector(".card__photo-card").setAttribute("alt", name);
   elementItem.querySelector(".card__title").textContent = name;
 
-  elementItem
-    .querySelector(".card__heart")
-    .addEventListener("click", likeHeartCard); // сердце
-
-  elementItem
-    .querySelector(".card__delete")
-    .addEventListener("click", cardRemove); // мусорка
+  likeElement.addEventListener(
+    "click",
+    () => likeHeartCard(likeElement, cardId, likeQuantity) // сердце
+  );
+  // мусорка
+  deleteElement.addEventListener("click", () =>
+    removeCard(deleteElement, cardId)
+  );
 
   elementItem
     .querySelector(".card__photo-card")
@@ -24,50 +47,47 @@ const createCard = (name, link) => {
   return elementItem;
 };
 
-// функция переключатель сердец //
-const likeHeartCard = (evt) => {
-  evt.target.classList.toggle("card__heart_active");
+// функция постановки и удаления лайка //
+const likeHeartCard = (el, cardId, likeQuantity) => {
+  if (!el.classList.contains("card__heart_active")) {
+    settingLike(cardId)
+      .then((card) => {
+        el.classList.add("card__heart_active");
+        likeQuantity.textContent = card.likes.length.toString();
+      })
+      .catch((err) => {
+        console.log("Ошибка. Лайк не поставлен: ", err);
+      });
+  } else {
+    removingLike(cardId)
+      .then((card) => {
+        likeQuantity.textContent = card.likes.length.toString();
+        el.classList.remove("card__heart_active");
+      })
+      .catch((err) => {
+        console.log("Ошибка. Лайк не удален: ", err);
+      });
+  }
 };
-// Функция удаления карточек //
-const cardRemove = (evt) => {
-  evt.target.closest(".card__item").remove();
+// удаление карточки
+const removeCard = (el, cardId) => {
+  if (!el.classList.contains("card__item")) {
+    deleteCard(cardId)
+      .then(() => {
+        el.closest(".card__item").remove();
+      })
+      .catch((err) => {
+        console.log("Ошибка. Карточка не удалена: ", err);
+      });
+  }
 };
 
 // добавление карточек
-const addCard = (listCard, elementItem) => {
-  listCard.prepend(elementItem);
+const addCard = (listCard, elementItem, prepend) => {
+  if (prepend) {
+    listCard.prepend(elementItem);
+  } else {
+    listCard.append(elementItem);
+  }
 };
-// массив карточек //
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
-
-// функция перебора карточек //
-initialCards.forEach((element) =>
-  addCard(listCard, createCard(element.name, element.link))
-);
-
-export { createCard, likeHeartCard, cardRemove, addCard, initialCards };
+export { createCard, addCard };

@@ -27,6 +27,9 @@
           src="<%=require('./image/researcher3.jpg')%>"
           alt="исследователь"
         />
+        <div class="profile__overlay">
+          <button type="button" class="profile__pen-editor"></button>
+        </div>
         <article class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button type="button" class="profile__edit"></button>
@@ -47,7 +50,10 @@
               />
               <div class="card__like">
                 <h3 class="card__title">Ганьсу</h3>
-                <button type="button" class="card__heart"></button>
+                <div class="card__like-counter">
+                  <button type="button" class="card__heart"></button>
+                  <p class="card__quantity">2</p>
+                </div>
               </div>
             </li>
           </template>
@@ -93,7 +99,12 @@
               maxlength="200"
             />
             <span class="popup__line-error popup__line_type_eco"></span>
-            <button type="submit" class="popup__save-button">Сохранить</button>
+            <button
+              type="submit"
+              class="popup__save-button popup__save-button_type_profile"
+            >
+              Сохранить
+            </button>
           </fieldset>
         </form>
       </div>
@@ -133,7 +144,47 @@
               pattern="https?://.+"
             />
             <span class="popup__line-error popup__line_type_linkcard"></span>
-            <button type="submit" class="popup__save-button">Создать</button>
+            <button
+              type="submit"
+              class="popup__save-button popup__save-button_type_card"
+            >
+              Создать
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+    <!-- модальное окно (аватар)-->
+    <section class="popup popup_type_avatar">
+      <div class="popup__container">
+        <button type="button" class="popup__exit"></button>
+        <form
+          action="index.html"
+          method="post"
+          name="formavatar"
+          avatar
+          id="formavatar"
+          novalidate
+        >
+          <fieldset class="popup__contact">
+            <h2 class="popup__heading">Обновить аватар</h2>
+            <input
+              type="url"
+              class="popup__line"
+              id="linkavatar"
+              name="linkavatar"
+              placeholder="Ссылка на картинку"
+              required
+              pattern="https?://.+"
+            />
+            <span class="popup__line-error popup__line_type_linkavatar"></span>
+            <button
+              type="submit"
+              class="popup__save-button popup__save-button_type_avatar"
+            >
+              Сохранить
+            </button>
           </fieldset>
         </form>
       </div>

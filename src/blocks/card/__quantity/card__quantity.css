@@ -1,0 +1,10 @@
+/* счетчик лайков */
+.card__quantity {
+  margin: 0px 22px 22px 38px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
+}
